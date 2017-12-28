@@ -1,0 +1,36 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion propCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion propMinSdkVersion
+        targetSdkVersion propTargetSdkVersion
+        versionCode propVersionCode
+        versionName propVersionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    implementation "com.android.support:design:$support_libs"
+    implementation "com.android.support:appcompat-v7:$support_libs"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.simplemobiletools:commons:3.3.12'
+}
+
+apply from: '../bintray-upload.gradle'

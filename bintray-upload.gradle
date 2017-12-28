@@ -1,0 +1,70 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def siteUrl = 'https://github.com/hanjoongcho/aaf-commons'
+def gitUrl = 'https://github.com/hanjoongcho/aaf-commons.git'
+group = "io.github.hanjoongcho"
+version = propVersionName
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            packaging 'aar'
+            name 'AAF Commons'
+            description = 'This library based on \'https://github.com/SimpleMobileTools/Simple-Commons\''
+            url siteUrl
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
+            }
+            developers {
+                developer {
+                    id 'Bulbasaur'
+                    name 'Hanjoong Cho'
+                    email 'hanjoongcho@gmail.com'
+                }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = "aaf-commons"
+        name = "aaf-commons"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+//        version {
+//            gpg {
+//                sign = true
+//                passphrase = properties.getProperty("bintray.gpg.password")
+//            }
+//        }
+    }
+}
