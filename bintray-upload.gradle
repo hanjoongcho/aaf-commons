@@ -54,7 +54,7 @@ bintray {
 
     configurations = ['archives']
     pkg {
-        repo = "aaf-commons"
+        repo = "kotlin-android"
         name = "aaf-commons"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
