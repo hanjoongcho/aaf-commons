@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.helpers.APP_NAME
 import com.simplemobiletools.commons.helpers.APP_VERSION_NAME
 import io.github.hanjoongcho.commons.BuildConfig
 import io.github.hanjoongcho.commons.R
+import io.github.hanjoongcho.commons.helpers.TransitionHelper
 import kotlinx.android.synthetic.main.activity_about.*
 import java.util.*
 
@@ -119,10 +120,10 @@ class AboutActivity : BaseSimpleActivity() {
 //                putExtra(APP_LICENSES, intent.getIntExtra(APP_LICENSES, 0))
 //                startActivity(this)
 //            }
-//            EasyPasswordHelper.startSettingActivityWithTransition(
-//                    this@AboutActivity,
-//                    WebViewActivity.getStartIntent(this@AboutActivity, getString(R.string.setting_license_url))
-//            )
+            TransitionHelper.startSettingActivityWithTransition(
+                    this@AboutActivity,
+                    WebViewActivity.getStartIntent(this@AboutActivity, getString(R.string.setting_license_url))
+            )
         }
         about_license.setTextColor(linkColor)
     }

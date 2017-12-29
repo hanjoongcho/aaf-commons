@@ -5,4 +5,6 @@
     <color name="colorPrimaryWithAlpha">#1007ABB3</color>
     <color name="colorAccent">#0f90e1</color>
     <color name="appBackground">#3307ABB3</color>
+
+    <color name="white">#FFFFFF</color>
 </resources>
