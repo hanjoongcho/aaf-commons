@@ -26,5 +26,5 @@ android {
 }
 
 dependencies {
-    implementation project(':commons')
+    implementation project(':commons-android')
 }
