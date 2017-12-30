@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import io.github.hanjoongcho.commons.R
 
+
 /**
  * Created by CHO HANJOONG on 2017-11-25.
  * This code based 'Simple-Commons' package
@@ -23,7 +24,7 @@ open class BaseSimpleActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
     }
-
+    
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
