@@ -4,6 +4,7 @@ import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
+import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
@@ -16,13 +17,30 @@ import android.view.View
 
 class TransitionHelper {
     companion object {
+
         @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        fun startSettingActivityWithTransition(activity: Activity, intent: Intent) {
+        fun startActivityWithTransition(activity: Activity, intent: Intent, bundle: Bundle?) {
+            ActivityCompat.startActivity(activity, intent, bundle)
+        }
+        
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        fun startActivityWithTransition(activity: Activity, intent: Intent) {
 
             val animationBundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
                     *createSafeTransitionParticipants(activity,
                             false)).toBundle()
 
+            ActivityCompat.startActivity(activity, intent, animationBundle)
+        }
+
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        fun startActivityWithTransition(activity: Activity, targetClass: Class<*>) {
+
+            val animationBundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
+                    *createSafeTransitionParticipants(activity,
+                            false)).toBundle()
+
+            val intent = Intent(activity, targetClass) 
             ActivityCompat.startActivity(activity, intent, animationBundle)
         }
 

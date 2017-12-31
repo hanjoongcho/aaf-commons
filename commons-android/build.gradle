@@ -31,9 +31,10 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$support_libs"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.simplemobiletools:commons:3.3.12'
+//    implementation project(":commons")
 }
 
- apply from: '../bintray-upload.gradle'
+apply from: '../bintray-upload.gradle'
 //buildscript {
 //    ext {
 //        propBuildToolsVersion = '27.0.1'
