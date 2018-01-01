@@ -27,9 +27,16 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:design:$support_libs"
+    // android
     implementation "com.android.support:appcompat-v7:$support_libs"
+    implementation "com.android.support:design:$support_libs"
+    
+    // jetbrains
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // google 
+    compile 'com.google.android.gms:play-services-drive:8.4.0'
+    
     implementation 'com.simplemobiletools:commons:3.3.12'
 //    implementation project(":commons")
 }

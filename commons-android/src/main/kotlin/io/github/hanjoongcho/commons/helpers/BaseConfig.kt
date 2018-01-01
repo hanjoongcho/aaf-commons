@@ -22,4 +22,8 @@ open class BaseConfig(context: Context) : com.simplemobiletools.commons.helpers.
     var aafPatternLockPauseMillis: Long
         get() = prefs.getLong(AAF_PATTERN_LOCK_PAUSE_MILLIS, 0L)
         set(aafPatternLockPauseMillis) = prefs.edit().putLong(AAF_PATTERN_LOCK_PAUSE_MILLIS, aafPatternLockPauseMillis).apply()
+    
+    var aafPatternLockSaved: String
+        get() = prefs.getString(AAF_PATTERN_LOCK_SAVED, AAF_PATTERN_LOCK_DEFAULT)
+        set(aafPatternLockSaved) = prefs.edit().putString(AAF_PATTERN_LOCK_SAVED, aafPatternLockSaved).apply()
 }

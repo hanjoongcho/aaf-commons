@@ -26,5 +26,6 @@ android {
 }
 
 dependencies {
-    implementation project(':commons-android')
+//    implementation project(':commons-android')
+    compile 'io.github.hanjoongcho:commons-android:0.0.2'
 }

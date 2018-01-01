@@ -3,5 +3,5 @@
     <string name="aaf_my_email">hanjoongcho@gmail.com</string>
 
     <!--GoogleDriveUtils-->
-    <string name="google_drive_connect_message">Google Drive in sync...</string>
+    <string name="google_drive_connect_message">Googleドライブの同期...</string>
 </resources>
