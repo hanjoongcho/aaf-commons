@@ -37,7 +37,7 @@ dependencies {
     // google 
     compile 'com.google.android.gms:play-services-drive:8.4.0'
     
-    implementation 'com.simplemobiletools:commons:3.3.12'
+    implementation 'com.simplemobiletools:commons:3.5.4'
 //    implementation project(":commons")
 }
 
