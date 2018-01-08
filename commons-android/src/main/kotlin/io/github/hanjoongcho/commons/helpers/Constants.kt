@@ -8,3 +8,7 @@ val AAF_PATTERN_LOCK_PROTECTION_ON = "aaf_pattern_lock_protection_on"
 val AAF_PATTERN_LOCK_PAUSE_MILLIS = "aaf_pattern_lock_pause_millis"
 val AAF_PATTERN_LOCK_SAVED = "saved_pattern"
 val AAF_PATTERN_LOCK_DEFAULT = "NA"
+
+// permissions
+val PERMISSION_ACCESS_FINE_LOCATION = 9
+val PERMISSION_ACCESS_COARSE_LOCATION = 10
