@@ -11,7 +11,7 @@ import android.preference.PreferenceManager
  */
 
 open class BaseConfig(context: Context) : com.simplemobiletools.commons.helpers.BaseConfig(context) {
-    private val legacyPrefs = PreferenceManager.getDefaultSharedPreferences(context)
+    protected val legacyPrefs = PreferenceManager.getDefaultSharedPreferences(context)!!
 
     companion object {
         fun newInstance(context: Context) = BaseConfig(context)

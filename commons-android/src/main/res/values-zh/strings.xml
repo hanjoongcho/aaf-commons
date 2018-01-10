@@ -1,7 +1,9 @@
 <resources>
+    <!--AboutActivity-->
     <string name="aaf_my_website">\nhttps://hanjoongcho.github.io/aaf/</string>
     <string name="aaf_my_email">hanjoongcho@gmail.com</string>
-
+    <string name="aaf_about_summary">应用程序版本，许可政策等等。</string>
+    
     <!--GoogleDriveUtils-->
     <string name="google_drive_connect_message">Google云端硬盘集成...</string>
 </resources>

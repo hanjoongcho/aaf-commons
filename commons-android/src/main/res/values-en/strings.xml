@@ -1,6 +1,8 @@
 <resources>
+    <!--AboutActivity-->
     <string name="aaf_my_website">\nhttps://hanjoongcho.github.io/aaf/</string>
     <string name="aaf_my_email">hanjoongcho@gmail.com</string>
+    <string name="aaf_about_summary">Application versions, licensing policies, and more.</string>
 
     <!--GoogleDriveUtils-->
     <string name="google_drive_connect_message">Google Drive in sync...</string>
