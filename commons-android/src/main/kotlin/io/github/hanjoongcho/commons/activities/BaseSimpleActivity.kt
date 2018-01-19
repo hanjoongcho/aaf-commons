@@ -7,10 +7,8 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.simplemobiletools.commons.extensions.getThemeId
 import io.github.hanjoongcho.commons.extensions.*
 
-import io.github.hanjoongcho.commons.R
 import io.github.hanjoongcho.commons.extensions.getPermissionString
 import io.github.hanjoongcho.commons.extensions.hasPermission
 
@@ -29,8 +27,8 @@ open class BaseSimpleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (useDynamicTheme) {
-//            setTheme(getThemeId())
-            setTheme(R.style.AppTheme_AAF)
+            setTheme(getThemeId())
+//            setTheme(R.style.AppTheme_AAF)
         }
 
         super.onCreate(savedInstanceState)
