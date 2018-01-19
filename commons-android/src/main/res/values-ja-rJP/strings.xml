@@ -1,4 +1,7 @@
 <resources>
+    <!--SettingsActivity-->
+    <string name="customize_colors_summary">アプリケーションの主要な色を設定します。</string>
+    
     <!--AboutActivity-->
     <string name="aaf_my_website">\nhttps://hanjoongcho.github.io/aaf/</string>
     <string name="aaf_my_email">hanjoongcho@gmail.com</string>

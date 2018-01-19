@@ -3,6 +3,8 @@ package io.github.hanjoongcho.commons.extensions
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Looper
 import android.support.v4.content.ContextCompat
 import com.simplemobiletools.commons.helpers.*
 import io.github.hanjoongcho.commons.helpers.*
@@ -14,6 +16,17 @@ import io.github.hanjoongcho.commons.helpers.BaseConfig
  * You can see original 'Simple-Commons' from below link.
  * https://github.com/SimpleMobileTools/Simple-Commons
  */
+
+fun Context.isOnMainThread() = Looper.myLooper() == Looper.getMainLooper()
+fun Context.getSharedPrefs() = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
+
+fun Context.isJellyBean1Plus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1
+fun Context.isAndroidFour() = Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT_WATCH
+fun Context.isKitkatPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+fun Context.isLollipopPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+fun Context.isMarshmallowPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+fun Context.isNougatPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+fun Context.isOreoPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
 
 val Context.baseConfig: BaseConfig get() = BaseConfig.newInstance(this)
 

@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_web_view.*
  * Created by CHO HANJOONG on 2017-11-24.
  */
 
-class WebViewActivity : BaseSimpleActivity() {
+class BaseWebViewActivity : BaseSimpleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +18,7 @@ class WebViewActivity : BaseSimpleActivity() {
 //        webView.getSettings().setJavaScriptEnabled(true)
         webView.loadUrl(intent.getStringExtra(OPEN_URL_INFO))
         finish.setOnClickListener {
-            this@WebViewActivity.onBackPressed()
+            this@BaseWebViewActivity.onBackPressed()
         }
     }
 
@@ -26,7 +26,7 @@ class WebViewActivity : BaseSimpleActivity() {
         const val OPEN_URL_INFO = "open_url_info"
 
         fun getStartIntent(context: Context, openUrlInfo: String): Intent {
-            return Intent(context, WebViewActivity::class.java)
+            return Intent(context, BaseWebViewActivity::class.java)
                     .apply { putExtra(OPEN_URL_INFO, openUrlInfo) }
         }
     }

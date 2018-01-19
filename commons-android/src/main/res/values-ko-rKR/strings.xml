@@ -1,4 +1,7 @@
 <resources>
+    <!--SettingsActivity-->
+    <string name="customize_colors_summary">애플리케이션의 주요 색상을 설정합니다.</string>
+    
     <!--AboutActivity-->
     <string name="aaf_my_website">\nhttps://hanjoongcho.github.io/aaf/</string>
     <string name="aaf_my_email">hanjoongcho@gmail.com</string>

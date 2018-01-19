@@ -1,9 +1,15 @@
 package io.github.hanjoongcho.commons.activities
 
+import android.app.ActivityManager
+import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.simplemobiletools.commons.extensions.getThemeId
+import io.github.hanjoongcho.commons.extensions.*
+
 import io.github.hanjoongcho.commons.R
 import io.github.hanjoongcho.commons.extensions.getPermissionString
 import io.github.hanjoongcho.commons.extensions.hasPermission
@@ -29,6 +35,15 @@ open class BaseSimpleActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (useDynamicTheme) {
+            setTheme(getThemeId())
+            updateBackgroundColor()
+        }
+        updateActionbarColor()
+    }
     
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -39,6 +54,36 @@ open class BaseSimpleActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        isAskingPermissions = false
+        if (requestCode == GENERIC_PERM_HANDLER && grantResults.isNotEmpty()) {
+            actionOnPermission?.invoke(grantResults[0] == 0)
+        }
+    }
+    
+    fun startCustomizationActivity() = startActivity(Intent(this, BaseCustomizationActivity::class.java))
+
+    fun updateActionbarColor(color: Int = baseConfig.primaryColor) {
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(color))
+//        supportActionBar?.title = Html.fromHtml("<font color='${color.getContrastColor().toHex()}'>${supportActionBar?.title}</font>")
+        updateStatusbarColor(color)
+
+        if (isLollipopPlus()) {
+            setTaskDescription(ActivityManager.TaskDescription(null, null, color))
+        }
+    }
+
+    fun updateStatusbarColor(color: Int) {
+        if (isLollipopPlus()) {
+            window.statusBarColor = color.darkenColor()
+        }
+    }
+
+    fun updateBackgroundColor(color: Int = baseConfig.backgroundColor) {
+        window.decorView.setBackgroundColor(color)
+    }
+    
     fun handlePermission(permissionId: Int, callback: (granted: Boolean) -> Unit) {
         actionOnPermission = null
         if (hasPermission(permissionId)) {
@@ -47,14 +92,6 @@ open class BaseSimpleActivity : AppCompatActivity() {
             isAskingPermissions = true
             actionOnPermission = callback
             ActivityCompat.requestPermissions(this, arrayOf(getPermissionString(permissionId)), GENERIC_PERM_HANDLER)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        isAskingPermissions = false
-        if (requestCode == GENERIC_PERM_HANDLER && grantResults.isNotEmpty()) {
-            actionOnPermission?.invoke(grantResults[0] == 0)
         }
     }
 }
