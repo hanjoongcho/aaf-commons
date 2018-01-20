@@ -40,9 +40,13 @@ open class BaseAboutActivity : BaseSimpleActivity() {
 
         appName = intent.getStringExtra(APP_NAME) ?: ""
         linkColor = if (isBlackAndWhiteTheme()) Color.WHITE else baseConfig.primaryColor
-        updateTextColors(about_scrollview)
     }
 
+    override fun onResume() {
+        super.onResume()
+        updateTextColors(about_scrollview)
+    }
+    
     fun setupWebsite() {
         val websiteText = String.format(getString(R.string.two_string_placeholder), getString(R.string.website_label), getString(R.string.aaf_my_website))
         about_website.text = websiteText

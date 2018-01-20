@@ -7,6 +7,10 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.ScrollView
 import io.github.hanjoongcho.commons.extensions.*
 
 import io.github.hanjoongcho.commons.extensions.getPermissionString
@@ -79,8 +83,14 @@ open class BaseSimpleActivity : AppCompatActivity() {
     }
 
     fun updateBackgroundColor(color: Int = baseConfig.backgroundColor) {
-        window.decorView.setBackgroundColor(color)
+        val mainView: ViewGroup? = getMainViewGroup()
+        mainView?.run {
+            setBackgroundColor(color)
+            alpha = 0.7f
+        }
     }
+    
+    open fun getMainViewGroup(): ViewGroup? = null
     
     fun handlePermission(permissionId: Int, callback: (granted: Boolean) -> Unit) {
         actionOnPermission = null

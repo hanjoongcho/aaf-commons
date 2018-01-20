@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
+import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.getThemeId
 import com.simplemobiletools.commons.extensions.setBackgroundWithStroke
@@ -85,7 +86,7 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-//        updateBackgroundColor(curBackgroundColor)
+        updateBackgroundColor(curBackgroundColor)
         updateActionbarColor(curPrimaryColor)
         setTheme(getThemeId(curPrimaryColor))
 
@@ -317,18 +318,17 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
     }
 
     private fun pickBackgroundColor() {
-
-        AlertDialog.Builder(this@BaseCustomizationActivity)?.apply {
+//        AlertDialog.Builder(this@BaseCustomizationActivity)?.apply {
 //            setMessage(getString(R.string.pick_background_color_guide_message))
-            setPositiveButton(getString(R.string.ok), null)
-        }.create().show()
-//        ColorPickerDialog(this, curBackgroundColor) {
-//            if (hasColorChanged(curBackgroundColor, it)) {
-//                setCurrentBackgroundColor(it)
-//                colorChanged()
-//                updateColorTheme(getUpdatedTheme())
-//            }
-//        }
+//            setPositiveButton(getString(R.string.ok), null)
+//        }.create().show()
+        ColorPickerDialog(this, curBackgroundColor) {
+            if (hasColorChanged(curBackgroundColor, it)) {
+                setCurrentBackgroundColor(it)
+                colorChanged()
+                updateColorTheme(getUpdatedTheme())
+            }
+        }
     }
 
     private fun pickPrimaryColor() {
