@@ -86,7 +86,7 @@ open class BaseSimpleActivity : AppCompatActivity() {
     fun updateBackgroundColor(color: Int = baseConfig.backgroundColor) {
         val mainView: ViewGroup? = getMainViewGroup()
         mainView?.run {
-            setBackgroundColor(ColorUtils.setAlphaComponent(color, 50))
+            setBackgroundColor(ColorUtils.setAlphaComponent(color, 255))
 //            alpha = 0.7f
         }
     }
