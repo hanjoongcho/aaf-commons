@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
+import android.support.v4.graphics.ColorUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
@@ -85,8 +86,8 @@ open class BaseSimpleActivity : AppCompatActivity() {
     fun updateBackgroundColor(color: Int = baseConfig.backgroundColor) {
         val mainView: ViewGroup? = getMainViewGroup()
         mainView?.run {
-            setBackgroundColor(color)
-            alpha = 0.7f
+            setBackgroundColor(ColorUtils.setAlphaComponent(color, 50))
+//            alpha = 0.7f
         }
     }
     

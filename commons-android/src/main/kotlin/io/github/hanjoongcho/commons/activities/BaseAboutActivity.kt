@@ -44,7 +44,7 @@ open class BaseAboutActivity : BaseSimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        updateTextColors(about_scrollview)
+        updateTextColors(main_holder)
     }
     
     fun setupWebsite() {

@@ -1,7 +1,6 @@
 package io.github.hanjoongcho.commons.activities
 
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
@@ -10,10 +9,10 @@ import com.simplemobiletools.commons.extensions.getThemeId
 import com.simplemobiletools.commons.extensions.setBackgroundWithStroke
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.models.MyTheme
-import io.github.hanjoongcho.commons.dialogs.*
 import io.github.hanjoongcho.commons.R
-import java.util.LinkedHashMap
+import io.github.hanjoongcho.commons.dialogs.LineColorPickerDialog
 import kotlinx.android.synthetic.main.activity_customization.*
+import java.util.*
 
 /**
  * Created by Hanjoong Cho on 2017-12-18.
@@ -302,26 +301,16 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
     }
 
     private fun pickTextColor() {
-
-        AlertDialog.Builder(this@BaseCustomizationActivity)?.apply {
-//            setMessage(getString(R.string.pick_text_color_guide_message))
-            setPositiveButton(getString(R.string.ok), null)
-        }.create().show()
-
-//        ColorPickerDialog(this, curTextColor) {
-//            if (hasColorChanged(curTextColor, it)) {
-//                setCurrentTextColor(it)
-//                colorChanged()
-//                updateColorTheme(getUpdatedTheme())
-//            }
-//        }
+        ColorPickerDialog(this, curTextColor) {
+            if (hasColorChanged(curTextColor, it)) {
+                setCurrentTextColor(it)
+                colorChanged()
+                updateColorTheme(getUpdatedTheme())
+            }
+        }
     }
 
     private fun pickBackgroundColor() {
-//        AlertDialog.Builder(this@BaseCustomizationActivity)?.apply {
-//            setMessage(getString(R.string.pick_background_color_guide_message))
-//            setPositiveButton(getString(R.string.ok), null)
-//        }.create().show()
         ColorPickerDialog(this, curBackgroundColor) {
             if (hasColorChanged(curBackgroundColor, it)) {
                 setCurrentBackgroundColor(it)
