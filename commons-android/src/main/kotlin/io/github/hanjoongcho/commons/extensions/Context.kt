@@ -54,8 +54,8 @@ fun Context.updateTextColors(viewGroup: ViewGroup, tmpTextColor: Int = 0, tmpAcc
             .forEach {
                 when (it) {
                     is MyTextView -> {
-                        Log.i("myText", "$it")
-//                        it.setColors(textColor, accentColor, backgroundColor)
+//                        Log.i("myText", "$it")
+                        it.setColors(textColor, accentColor, backgroundColor)
                     }
                     is MyAppCompatSpinner -> it.setColors(textColor, accentColor, backgroundColor)
                     is MySwitchCompat -> it.setColors(textColor, accentColor, backgroundColor)
