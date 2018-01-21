@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Looper
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.ViewGroup
 import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.isBlackAndWhiteTheme
@@ -52,7 +53,10 @@ fun Context.updateTextColors(viewGroup: ViewGroup, tmpTextColor: Int = 0, tmpAcc
             .map { viewGroup.getChildAt(it) }
             .forEach {
                 when (it) {
-                    is MyTextView -> it.setColors(textColor, accentColor, backgroundColor)
+                    is MyTextView -> {
+                        Log.i("myText", "$it")
+//                        it.setColors(textColor, accentColor, backgroundColor)
+                    }
                     is MyAppCompatSpinner -> it.setColors(textColor, accentColor, backgroundColor)
                     is MySwitchCompat -> it.setColors(textColor, accentColor, backgroundColor)
                     is MyCompatRadioButton -> it.setColors(textColor, accentColor, backgroundColor)
