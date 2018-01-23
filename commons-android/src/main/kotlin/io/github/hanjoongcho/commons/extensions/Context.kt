@@ -10,12 +10,14 @@ import android.os.Looper
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.ViewGroup
+import android.widget.TextView
 import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.isBlackAndWhiteTheme
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.*
 import io.github.hanjoongcho.commons.helpers.*
 import io.github.hanjoongcho.commons.helpers.BaseConfig
+import io.github.hanjoongcho.commons.views.ModalView
 
 /**
  * Created by CHO HANJOONG on 2017-12-30.
@@ -65,6 +67,7 @@ fun Context.updateTextColors(viewGroup: ViewGroup, tmpTextColor: Int = 0, tmpAcc
                     is MyFloatingActionButton -> it.backgroundTintList = ColorStateList.valueOf(accentColor)
                     is MySeekBar -> it.setColors(textColor, accentColor, backgroundColor)
                     is MyButton -> it.setColors(textColor, accentColor, backgroundColor)
+                    is ModalView -> it.setBackgroundColor(accentColor)
                     is ViewGroup -> updateTextColors(it, textColor, accentColor)
                 }
             }
