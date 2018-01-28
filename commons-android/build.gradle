@@ -35,7 +35,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // google 
-    compile 'com.google.android.gms:play-services-drive:8.4.0'
+    compile 'com.google.android.gms:play-services-drive:11.8.0'
     
     implementation 'com.simplemobiletools:commons:3.7.8'
 //    implementation project(":commons")
