@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
-import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.getThemeId
 import com.simplemobiletools.commons.extensions.setBackgroundWithStroke
 import com.simplemobiletools.commons.models.MyTheme
+import io.github.hanjoongcho.commons.extensions.baseConfig
 import io.github.hanjoongcho.commons.extensions.updateTextColors
 import io.github.hanjoongcho.commons.R
 import io.github.hanjoongcho.commons.dialogs.LineColorPickerDialog
@@ -235,6 +235,7 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
             textColor = curTextColor
             backgroundColor = curBackgroundColor
             primaryColor = curPrimaryColor
+            isThemeChanged = true
         }
 
 //        if (curSelectedThemeId == THEME_SHARED) {

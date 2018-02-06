@@ -29,4 +29,8 @@ open class BaseConfig(context: Context) : com.simplemobiletools.commons.helpers.
     var aafPatternLockSaved: String
         get() = legacyPrefs.getString(AAF_PATTERN_LOCK_SAVED, AAF_PATTERN_LOCK_DEFAULT)
         set(aafPatternLockSaved) = legacyPrefs.edit().putString(AAF_PATTERN_LOCK_SAVED, aafPatternLockSaved).apply()
+    
+    var isThemeChanged: Boolean
+        get() = prefs.getBoolean(AAF_THEME_CHANGE, false)
+        set(isThemeChanged) = prefs.edit().putBoolean(AAF_THEME_CHANGE, isThemeChanged).apply()
 }

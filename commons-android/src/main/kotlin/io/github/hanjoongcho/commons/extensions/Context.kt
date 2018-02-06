@@ -11,7 +11,6 @@ import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.TextView
-import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.isBlackAndWhiteTheme
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.*
