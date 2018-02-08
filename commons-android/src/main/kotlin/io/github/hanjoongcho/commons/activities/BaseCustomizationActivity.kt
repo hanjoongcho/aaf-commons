@@ -85,7 +85,11 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        updateBackgroundColor(curBackgroundColor)
+        if (isBackgroundColorFromPrimaryColor) {
+            updateBackgroundColor(baseConfig.primaryColor)
+        } else {
+            updateBackgroundColor(curBackgroundColor)
+        }
         updateActionbarColor(curPrimaryColor)
         setTheme(getThemeId(curPrimaryColor))
 
@@ -190,7 +194,13 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
         hasUnsavedChanges = true
         invalidateOptionsMenu()
         updateTextColors(customization_holder, curTextColor)
-        updateBackgroundColor(curBackgroundColor)
+
+        if (isBackgroundColorFromPrimaryColor) {
+            updateBackgroundColor(curPrimaryColor)
+        } else {
+            updateBackgroundColor(curBackgroundColor)
+        }
+        
         updateActionbarColor(curPrimaryColor)
     }
 
@@ -332,10 +342,12 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
                     colorChanged()
                     updateColorTheme(getUpdatedTheme())
                     setTheme(getThemeId(color))
+                    if (isBackgroundColorFromPrimaryColor) updateBackgroundColor(color)
                 }
             } else {
                 updateActionbarColor(curPrimaryColor)
                 setTheme(getThemeId(curPrimaryColor))
+                if (isBackgroundColorFromPrimaryColor) updateBackgroundColor(curPrimaryColor)
             }
         }
     }

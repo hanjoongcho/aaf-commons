@@ -64,6 +64,7 @@ class LineColorPickerDialog(val activity: BaseSimpleActivity, val color: Int, va
         dialog?.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         activity.updateActionbarColor(color)
         activity.setTheme(activity.getThemeId(color))
+        if (activity.isBackgroundColorFromPrimaryColor) activity.updateBackgroundColor(color)
         view.hex_code.text = color.toHex()
     }
 
