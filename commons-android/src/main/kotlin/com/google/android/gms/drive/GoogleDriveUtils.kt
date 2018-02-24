@@ -102,10 +102,13 @@ open class GoogleDriveUtils : Activity(), GoogleApiClient.ConnectionCallbacks, G
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         baseConfig.aafPatternLockPauseMillis = System.currentTimeMillis()
+        baseConfig.aafPinLockPauseMillis = System.currentTimeMillis()
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 REQUEST_CODE_RESOLUTION ->  mGoogleApiClient?.connect()
-                REQUEST_CODE_GOOGLE_DRIVE_UPLOAD -> finish()
+                REQUEST_CODE_GOOGLE_DRIVE_UPLOAD -> {
+                    finish()
+                }
                 REQUEST_CODE_GOOGLE_DRIVE_DOWNLOAD -> {
                     data?.let {
                         mSelectedFileDriveId = it.getParcelableExtra(OpenFileActivityBuilder.EXTRA_RESPONSE_DRIVE_ID)
@@ -119,7 +122,6 @@ open class GoogleDriveUtils : Activity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
     companion object {
-
         const val REQUEST_CODE_RESOLUTION = 0
         const val REQUEST_CODE_GOOGLE_DRIVE_UPLOAD = 1
         const val REQUEST_CODE_GOOGLE_DRIVE_DOWNLOAD = 2

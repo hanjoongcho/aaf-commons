@@ -21,7 +21,6 @@ open class BaseConfig(context: Context) : com.simplemobiletools.commons.helpers.
         get() = prefs.getBoolean(AAF_PATTERN_LOCK_PROTECTION_ON, false)
         set(appPasswordProtectionOn) = prefs.edit().putBoolean(AAF_PATTERN_LOCK_PROTECTION_ON, appPasswordProtectionOn).apply()
 
-
     var aafPatternLockPauseMillis: Long
         get() = prefs.getLong(AAF_PATTERN_LOCK_PAUSE_MILLIS, 0L)
         set(aafPatternLockPauseMillis) = prefs.edit().putLong(AAF_PATTERN_LOCK_PAUSE_MILLIS, aafPatternLockPauseMillis).apply()
@@ -29,6 +28,10 @@ open class BaseConfig(context: Context) : com.simplemobiletools.commons.helpers.
     var aafPatternLockSaved: String
         get() = legacyPrefs.getString(AAF_PATTERN_LOCK_SAVED, AAF_PATTERN_LOCK_DEFAULT)
         set(aafPatternLockSaved) = legacyPrefs.edit().putString(AAF_PATTERN_LOCK_SAVED, aafPatternLockSaved).apply()
+
+    var aafPinLockPauseMillis: Long
+        get() = prefs.getLong(AAF_PIN_LOCK_PAUSE_MILLIS, 0L)
+        set(aafPinLockPauseMillis) = prefs.edit().putLong(AAF_PIN_LOCK_PAUSE_MILLIS, aafPinLockPauseMillis).apply()
     
     var isThemeChanged: Boolean
         get() = prefs.getBoolean(AAF_THEME_CHANGE, false)
