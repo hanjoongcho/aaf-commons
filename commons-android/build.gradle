@@ -37,20 +37,20 @@ dependencies {
     // google 
     compile 'com.google.android.gms:play-services-drive:11.8.0'
     
-//    implementation 'com.simplemobiletools:commons:3.7.8'
-    implementation project(":commons")
+    implementation 'com.simplemobiletools:commons:3.7.8'
+//    implementation project(":commons")
 }
 
-//apply from: '../bintray-upload.gradle'
-buildscript {
-    ext {
-        propBuildToolsVersion = '27.0.1'
-        propCompileSdkVersion = 27
-        propMinSdkVersion = 16
-        propTargetSdkVersion = propCompileSdkVersion
-        propVersionCode = 1
-        propVersionName = '3.2.19'
-        kotlin_version = '1.2.10'
-        support_libs = '27.0.2'
-    }
-}
+apply from: '../bintray-upload.gradle'
+//buildscript {
+//    ext {
+//        propBuildToolsVersion = '27.0.1'
+//        propCompileSdkVersion = 27
+//        propMinSdkVersion = 16
+//        propTargetSdkVersion = propCompileSdkVersion
+//        propVersionCode = 1
+//        propVersionName = '3.2.19'
+//        kotlin_version = '1.2.10'
+//        support_libs = '27.0.2'
+//    }
+//}
