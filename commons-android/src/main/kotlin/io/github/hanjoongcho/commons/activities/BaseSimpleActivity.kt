@@ -8,14 +8,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.graphics.ColorUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ScrollView
 import io.github.hanjoongcho.commons.extensions.*
-
-import io.github.hanjoongcho.commons.extensions.getPermissionString
-import io.github.hanjoongcho.commons.extensions.hasPermission
 
 /**
  * Created by CHO HANJOONG on 2017-11-25.
