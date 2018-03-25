@@ -1,6 +1,8 @@
 <resources>
     <!--SettingsActivity-->
     <string name="customize_colors_summary">Set the primary color of the application.</string>
+    <string name="invite_friends">Invite friends</string>
+    <string name="invite_friends_summary">Share the %s application with your friends.</string>
     
     <!--AboutActivity-->
     <string name="aaf_my_website">\nhttps://hanjoongcho.github.io/aaf/</string>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="card_radius">3dp</dimen>
+    <dimen name="card_layout_padding">3dp</dimen>
+    <dimen name="card_layout_margin">3dp</dimen>
+    <dimen name="card_contents_padding">15dp</dimen>
+    
     <dimen name="spacing_nano">2dp</dimen>
     <dimen name="spacing_micro">4dp</dimen>
     <dimen name="spacing_normal">8dp</dimen>
