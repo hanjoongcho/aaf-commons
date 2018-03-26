@@ -11,6 +11,7 @@ import io.github.hanjoongcho.commons.extensions.baseConfig
 import io.github.hanjoongcho.commons.extensions.updateTextColors
 import io.github.hanjoongcho.commons.R
 import io.github.hanjoongcho.commons.dialogs.LineColorPickerDialog
+import io.github.hanjoongcho.commons.extensions.updateAppViews
 import kotlinx.android.synthetic.main.activity_customization.*
 import java.util.*
 
@@ -20,6 +21,7 @@ import java.util.*
  * You can see original 'Simple-Commons' from below link.
  * https://github.com/SimpleMobileTools/Simple-Commons
  */
+
 
 open class BaseCustomizationActivity : BaseSimpleActivity() {
     private val THEME_LIGHT = 0
@@ -71,7 +73,8 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
             setHomeAsUpIndicator(R.drawable.ic_cross)
         }
 
-        updateTextColors(customization_holder)
+        updateTextColors(main_holder)
+        updateAppViews(main_holder)
         initColorVariables()
         setupColorsPickers()
 
@@ -97,14 +100,6 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
             updateActionbarColor(this)
             setTheme(getThemeId(this))
         }
-
-        setFontsStyle()
-    }
-
-    private fun setFontsStyle() {
-//        FontUtils.setFontsTypeface(applicationContext, assets, null, findViewById<View>(android.R.id.content) as ViewGroup)
-//        val fontSize = CommonUtils.loadFloatPreference(this, Constants.SETTING_FONT_SIZE, -1f)
-//        if (fontSize > 0) FontUtils.setFontsSize(fontSize, findViewById<View>(android.R.id.content) as ViewGroup)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -193,7 +188,7 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
 
         hasUnsavedChanges = true
         invalidateOptionsMenu()
-        updateTextColors(customization_holder, curTextColor)
+        updateTextColors(main_holder, curTextColor)
 
         if (isBackgroundColorFromPrimaryColor) {
             updateBackgroundColor(curPrimaryColor)
@@ -303,6 +298,7 @@ open class BaseCustomizationActivity : BaseSimpleActivity() {
 
     private fun setCurrentBackgroundColor(color: Int) {
         curBackgroundColor = color
+        updateAppViews(main_holder, curBackgroundColor)
 //        updateBackgroundColor(color)
     }
 

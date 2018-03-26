@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.helpers.APP_NAME
 import com.simplemobiletools.commons.helpers.APP_VERSION_NAME
 import io.github.hanjoongcho.commons.extensions.updateTextColors
 import io.github.hanjoongcho.commons.R
+import io.github.hanjoongcho.commons.extensions.updateAppViews
 import kotlinx.android.synthetic.main.activity_about.*
 
 /**
@@ -45,6 +46,7 @@ open class BaseAboutActivity : BaseSimpleActivity() {
     override fun onResume() {
         super.onResume()
         updateTextColors(main_holder)
+        updateAppViews(main_holder)
     }
     
     fun setupWebsite() {

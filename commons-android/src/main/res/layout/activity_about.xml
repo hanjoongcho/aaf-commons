@@ -21,98 +21,105 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
         </android.support.design.widget.AppBarLayout>
 
-        <ScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:id="@+id/main_holder"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:id="@+id/about_holder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:layout_marginTop="@dimen/spacing_normal"
-                    style="@style/SettingsItemHolder"
-                    android:id="@+id/about_website_holder">
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/about_website"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autoLink="web"
-                        android:text="@string/aaf_my_website"
-                        android:textColorLink="@color/color_primary"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    style="@style/SettingsItemHolder"
-                    android:id="@+id/about_email_holder">
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/about_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/aaf_my_email"
-                        android:textColorLink="@color/color_primary"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    style="@style/SettingsItemHolder"
-                    android:id="@+id/about_more_apps_holder">
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/about_more_apps"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/more_apps_underlined"
-                        android:textColorLink="@color/color_primary"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    style="@style/SettingsItemHolder"
-                    android:id="@+id/about_invite_holder">
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/about_invite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/invite_friends_underlined"
-                        android:textColorLink="@color/color_primary"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    style="@style/SettingsItemHolder"
-                    android:id="@+id/about_rate_us_holder">
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/about_rate_us"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/rate_us_underlined"
-                        android:textColorLink="@color/color_primary"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    style="@style/SettingsItemHolder"
-                    android:id="@+id/about_license_holder">
-                    <com.simplemobiletools.commons.views.MyTextView
-                        android:id="@+id/about_license"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/third_party_licences_underlined"
-                        android:textColorLink="@color/color_primary"/>
-                </RelativeLayout>
-
-                <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/about_copyright"
-                    android:textSize="10sp"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/AppCard.Settings">
+                <ScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentBottom="true"
-                    android:layout_below="@+id/about_license"
-                    android:gravity="center_horizontal|bottom"
-                    android:paddingBottom="@dimen/spacing_double"
-                    android:text=""/>
-            </LinearLayout>
-        </ScrollView>
+                    android:fillViewport="true">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/about_holder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            style="@style/SettingsItemHolder"
+                            android:id="@+id/about_website_holder">
+                            <com.simplemobiletools.commons.views.MyTextView
+                                android:id="@+id/about_website"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autoLink="web"
+                                android:text="@string/aaf_my_website"
+                                android:textColorLink="@color/color_primary"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            style="@style/SettingsItemHolder"
+                            android:id="@+id/about_email_holder">
+                            <com.simplemobiletools.commons.views.MyTextView
+                                android:id="@+id/about_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/aaf_my_email"
+                                android:textColorLink="@color/color_primary"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            style="@style/SettingsItemHolder"
+                            android:id="@+id/about_more_apps_holder">
+                            <com.simplemobiletools.commons.views.MyTextView
+                                android:id="@+id/about_more_apps"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/more_apps_underlined"
+                                android:textColorLink="@color/color_primary"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            style="@style/SettingsItemHolder"
+                            android:id="@+id/about_invite_holder">
+                            <com.simplemobiletools.commons.views.MyTextView
+                                android:id="@+id/about_invite"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/invite_friends_underlined"
+                                android:textColorLink="@color/color_primary"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            style="@style/SettingsItemHolder"
+                            android:id="@+id/about_rate_us_holder">
+                            <com.simplemobiletools.commons.views.MyTextView
+                                android:id="@+id/about_rate_us"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/rate_us_underlined"
+                                android:textColorLink="@color/color_primary"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            style="@style/SettingsItemHolder"
+                            android:id="@+id/about_license_holder">
+                            <com.simplemobiletools.commons.views.MyTextView
+                                android:id="@+id/about_license"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/third_party_licences_underlined"
+                                android:textColorLink="@color/color_primary"/>
+                        </RelativeLayout>
+
+                        <com.simplemobiletools.commons.views.MyTextView
+                            android:id="@+id/about_copyright"
+                            android:textSize="10sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_below="@+id/about_license"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="@dimen/spacing_double"
+                            android:text=""/>
+                    </LinearLayout>
+                </ScrollView>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
     </LinearLayout>    
 </android.support.design.widget.CoordinatorLayout>
 

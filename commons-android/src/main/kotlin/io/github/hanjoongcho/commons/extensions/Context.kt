@@ -8,9 +8,11 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Looper
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.CardView
 import android.util.Log
 import android.view.ViewGroup
 import android.widget.TextView
+import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.isBlackAndWhiteTheme
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.*
@@ -55,7 +57,6 @@ fun Context.updateTextColors(viewGroup: ViewGroup, tmpTextColor: Int = 0, tmpAcc
             .forEach {
                 when (it) {
                     is MyTextView -> {
-//                        Log.i("myText", "$it")
                         it.setColors(textColor, accentColor, backgroundColor)
                     }
                     is MyAppCompatSpinner -> it.setColors(textColor, accentColor, backgroundColor)
@@ -68,6 +69,20 @@ fun Context.updateTextColors(viewGroup: ViewGroup, tmpTextColor: Int = 0, tmpAcc
                     is MyButton -> it.setColors(textColor, accentColor, backgroundColor)
                     is ModalView -> it.setBackgroundColor(accentColor)
                     is ViewGroup -> updateTextColors(it, textColor, accentColor)
+                }
+            }
+}
+
+fun Context.updateAppViews(viewGroup: ViewGroup, tmpBackgroundColor: Int = 0) {
+    val backgroundColor = if (tmpBackgroundColor == 0) baseConfig.backgroundColor else tmpBackgroundColor
+    val cnt = viewGroup.childCount
+    (0 until cnt)
+            .map { viewGroup.getChildAt(it) }
+            .forEach {
+                when (it) {
+                    is CardView -> {
+                        it.setCardBackgroundColor(backgroundColor)
+                    }
                 }
             }
 }
