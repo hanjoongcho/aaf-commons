@@ -1,30 +1,28 @@
-<resources
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+<resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="colorAccent">@color/white</item>
     </style>
-    
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    
     <style name="AppTheme.AAF" parent="AppTheme.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+    <style name="AppTheme.FullScreen">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="AppCard">
@@ -35,18 +33,53 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
-
     <style name="AppCard.Settings">
         <item name="android:layout_marginBottom">@dimen/card_layout_margin</item>
     </style>
-    
+
+    <style name="LinearLayoutVertical">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="LinearLayoutVertical.TypeA">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="LinearLayoutVertical.TypeB">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="LinearLayoutHorizontal">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SettingsCategory">
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="SettingsTitle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="SettingsSummary" parent="SettingsTitle">
+        <item name="android:textStyle">normal</item>
+        <item name="android:alpha">0.7</item>
+    </style>
     <style name="SettingsDivider">
         <item name="android:alpha">0.1</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
     </style>
-    
     <style name="SettingsItemHolder">
         <item name="android:paddingTop">@dimen/spacing_normal</item>
         <item name="android:paddingBottom">@dimen/spacing_normal</item>
