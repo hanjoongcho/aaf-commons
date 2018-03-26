@@ -23,11 +23,12 @@
 
         <RelativeLayout
             android:id="@+id/main_holder"
+            android:padding="@dimen/card_layout_padding"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <android.support.v7.widget.CardView
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                style="@style/AppCard.Settings">
+                style="@style/AppCard.About">
                 <ScrollView
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
@@ -39,7 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <RelativeLayout
-                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/medium_margin"
                             style="@style/SettingsItemHolder"
                             android:id="@+id/about_website_holder">
                             <com.simplemobiletools.commons.views.MyTextView

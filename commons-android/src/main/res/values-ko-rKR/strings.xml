@@ -3,6 +3,7 @@
     <string name="customize_colors_summary">애플리케이션의 주요 색상을 설정합니다.</string>
     <string name="invite_friends">친구에게 공유</string>
     <string name="invite_friends_summary">%s 애플리케이션을 친구에게 공유합니다.</string>
+    <string name="background_color">배경 색상(Card View)</string>
     
     <!--AboutActivity-->
     <string name="aaf_my_website">\nhttps://hanjoongcho.github.io/aaf/</string>
