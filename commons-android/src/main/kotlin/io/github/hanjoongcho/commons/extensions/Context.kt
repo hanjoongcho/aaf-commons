@@ -9,15 +9,16 @@ import android.os.Build
 import android.os.Looper
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.CardView
-import android.util.Log
 import android.view.ViewGroup
-import android.widget.TextView
+import com.simplemobiletools.commons.extensions.adjustAlpha
 import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.isBlackAndWhiteTheme
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.*
-import io.github.hanjoongcho.commons.helpers.*
 import io.github.hanjoongcho.commons.helpers.BaseConfig
+import io.github.hanjoongcho.commons.helpers.PERMISSION_ACCESS_COARSE_LOCATION
+import io.github.hanjoongcho.commons.helpers.PERMISSION_ACCESS_FINE_LOCATION
+import io.github.hanjoongcho.commons.views.LabelLayout
 import io.github.hanjoongcho.commons.views.ModalView
 
 /**
@@ -56,14 +57,16 @@ fun Context.updateTextColors(viewGroup: ViewGroup, tmpTextColor: Int = 0, tmpAcc
             .map { viewGroup.getChildAt(it) }
             .forEach {
                 when (it) {
-                    is MyTextView -> {
-                        it.setColors(textColor, accentColor, backgroundColor)
-                    }
+                    is MyTextView -> it.setColors(textColor, accentColor, backgroundColor)
                     is MyAppCompatSpinner -> it.setColors(textColor, accentColor, backgroundColor)
                     is MySwitchCompat -> it.setColors(textColor, accentColor, backgroundColor)
                     is MyCompatRadioButton -> it.setColors(textColor, accentColor, backgroundColor)
                     is MyAppCompatCheckbox -> it.setColors(textColor, accentColor, backgroundColor)
-                    is MyEditText -> it.setColors(textColor, accentColor, backgroundColor)
+                    is MyEditText -> {
+                        it.setTextColor(textColor)
+                        it.setHintTextColor(textColor.adjustAlpha(0.5f))
+                        it.setLinkTextColor(accentColor)
+                    }
                     is MyFloatingActionButton -> it.backgroundTintList = ColorStateList.valueOf(accentColor)
                     is MySeekBar -> it.setColors(textColor, accentColor, backgroundColor)
                     is MyButton -> it.setColors(textColor, accentColor, backgroundColor)
@@ -82,7 +85,9 @@ fun Context.updateAppViews(viewGroup: ViewGroup, tmpBackgroundColor: Int = 0) {
                 when (it) {
                     is CardView -> {
                         it.setCardBackgroundColor(backgroundColor)
+                        updateAppViews(it)
                     }
+                    is ViewGroup -> updateAppViews(it)
                 }
             }
 }
